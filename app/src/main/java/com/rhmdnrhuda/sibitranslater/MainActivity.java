@@ -6,8 +6,8 @@ import android.content.pm.PackageManager;
 import android.content.res.AssetManager;
 import android.graphics.Bitmap;
 import android.os.Build;
-import android.os.Environment;
 import android.os.Bundle;
+import android.os.Environment;
 import android.provider.MediaStore;
 import android.util.Log;
 import android.view.View;
@@ -34,19 +34,16 @@ import org.opencv.core.Point;
 import org.opencv.core.Rect;
 import org.opencv.core.Scalar;
 import org.opencv.core.Size;
+import org.opencv.dnn.Dnn;
 import org.opencv.dnn.Net;
 import org.opencv.imgproc.Imgproc;
-
-import org.opencv.dnn.Dnn;
 import org.opencv.utils.Converters;
-
 
 import java.io.BufferedInputStream;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
-import java.lang.reflect.Method;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -54,10 +51,14 @@ import java.util.List;
 import java.util.Random;
 import java.util.Scanner;
 
+import org.python.util.PythonInterpreter;
+import org.python.core.*;
+
 import static org.opencv.core.Core.FONT_HERSHEY_SIMPLEX;
 
 
 public class MainActivity extends AppCompatActivity implements CameraBridgeViewBase.CvCameraViewListener2 {
+
 
     private static final String TAG = "CameraActivity";
     private static final int PERMISSIONS_REQUEST = 1;
@@ -141,6 +142,13 @@ public class MainActivity extends AppCompatActivity implements CameraBridgeViewB
         if (!permissionGranted) {
             checkPermissions();
         }
+
+//        PythonInterpreter pi = new PythonInterpreter();
+//        pi.set("integer", new PyInteger(42));
+//        pi.exec("square = integer*integer");
+//        PyInteger square = (PyInteger)pi.get("square");
+//        System.out.println("square: " + square.asInt());
+
         mOpenCvCameraView = findViewById(R.id.CameraView);
         mOpenCvCameraView.setVisibility(CameraBridgeViewBase.VISIBLE);
         mOpenCvCameraView.setCvCameraViewListener(this);

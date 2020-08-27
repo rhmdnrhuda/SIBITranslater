@@ -149,6 +149,9 @@ public class MainActivity extends AppCompatActivity implements CameraBridgeViewB
 //        PyInteger square = (PyInteger)pi.get("square");
 //        System.out.println("square: " + square.asInt());
 
+//        TextView tv = findViewById(R.id.result);
+//        tv.setText(square.asInt());
+
         mOpenCvCameraView = findViewById(R.id.CameraView);
         mOpenCvCameraView.setVisibility(CameraBridgeViewBase.VISIBLE);
         mOpenCvCameraView.setCvCameraViewListener(this);

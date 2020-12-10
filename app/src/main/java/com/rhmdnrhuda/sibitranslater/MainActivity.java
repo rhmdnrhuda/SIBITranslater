@@ -200,8 +200,8 @@ public class MainActivity extends AppCompatActivity implements CameraBridgeViewB
 
 
         float confThreshold = 0.3f;
-        String kelas = "none";
-        String akurasi = "none";
+        String kelas = "None";
+        String akurasi = "None";
 
         List<Integer> clsIds = new ArrayList<>();
         List<Float> confs = new ArrayList<>();
@@ -243,9 +243,7 @@ public class MainActivity extends AppCompatActivity implements CameraBridgeViewB
 
                     clsIds.add((int)classIdPoint.x);
                     confs.add((float)confidence);
-
-
-
+                    
 
                     rects.add(new Rect(left, top, width, height));
                 }
@@ -313,7 +311,7 @@ public class MainActivity extends AppCompatActivity implements CameraBridgeViewB
 
                 TextView result = findViewById(R.id.result);
                 TextView time = findViewById(R.id.time);
-                result.setText("Abjad: " + abjad +  "\nAkurasi: " + akurasi +"%");
+                result.setText("Abjad: " + abjad +  "\nPresisi: " + akurasi +"%");
                 time.setText("Runtime: " + duration + "s");
 
             }
